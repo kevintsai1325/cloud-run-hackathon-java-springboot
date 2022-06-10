@@ -68,7 +68,11 @@ public class Application {
             List<PlayerState> aheadPlayers = aheadPlayers(MY_DIRECTION, plyers);
             if (aheadPlayers.size() != 0) {
                 if (gotStock(aheadPlayers) || someoneFaceMe(aheadPlayers)) {
-                    return "T";
+                    if (aheadPlayers.size() >= 2) {
+                        return "T";
+                    } else {
+                        return move(plyers);
+                    }
                 } else {
                     return "F";
                 }
@@ -79,6 +83,10 @@ public class Application {
         if (aheadPlayers(MY_DIRECTION, plyers).size() != 0)
             return "T";
 
+        return move(plyers);
+    }
+
+    private String move(Map<String, PlayerState> plyers) {
         String[] L_R = getLR(MY_DIRECTION);
         int L_players = aheadPlayers(L_R[0], plyers).size();
         int R_players = aheadPlayers(L_R[1], plyers).size();
