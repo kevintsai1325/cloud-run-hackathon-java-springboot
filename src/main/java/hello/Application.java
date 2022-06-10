@@ -90,6 +90,9 @@ public class Application {
         String[] L_R = getLR(MY_DIRECTION);
         int L_players = aheadPlayers(L_R[0], plyers).size();
         int R_players = aheadPlayers(L_R[1], plyers).size();
+
+        if (R_players == 0 && L_players == 0 && MY_Y != 0 && MY_X != 0)
+            return "F";
         if (R_players >= L_players) {
             return "R";
         } else {
