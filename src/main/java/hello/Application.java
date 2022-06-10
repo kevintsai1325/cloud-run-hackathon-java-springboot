@@ -62,9 +62,8 @@ public class Application {
         PlayerState myState = arenaUpdate.arena.state.get(arenaUpdate._links.self.href);
         MY_X = myState.x;
         MY_Y = myState.y;
-        if (MY_DIRECTION == null) {
-            MY_DIRECTION = myState.direction;
-        }
+        MY_DIRECTION = myState.direction;
+
         if (myState.wasHit) {
             List<PlayerState> aheadPlayers = aheadPlayers(MY_DIRECTION, plyers);
             if (aheadPlayers.size() != 0) {
@@ -84,10 +83,8 @@ public class Application {
         int L_players = aheadPlayers(L_R[0], plyers).size();
         int R_players = aheadPlayers(L_R[1], plyers).size();
         if (R_players >= L_players) {
-            MY_DIRECTION = "R";
             return "R";
         } else {
-            MY_DIRECTION = "L";
             return "L";
         }
     }
