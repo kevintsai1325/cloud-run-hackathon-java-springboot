@@ -62,7 +62,7 @@ public class Application {
         PlayerState myState = arenaUpdate.arena.state.get(arenaUpdate._links.self.href);
         MY_X = myState.x;
         MY_Y = myState.y;
-        if (MY_X == null) {
+        if (MY_DIRECTION == null) {
             MY_DIRECTION = myState.direction;
         }
         if (myState.wasHit) {
