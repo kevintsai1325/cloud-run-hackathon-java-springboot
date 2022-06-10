@@ -91,8 +91,13 @@ public class Application {
         int L_players = aheadPlayers(L_R[0], plyers).size();
         int R_players = aheadPlayers(L_R[1], plyers).size();
 
-        if (R_players == 0 && L_players == 0 && MY_Y != 0 && MY_X != 0)
+        if (R_players == 0 && L_players == 0){
+            if(MY_X.equals(0) && MY_DIRECTION.equals("W"))
+                return "R";
+            if(MY_Y.equals(0) && MY_DIRECTION.equals("N"))
+                return "L";
             return "F";
+        }
         if (R_players >= L_players) {
             return "R";
         } else {
